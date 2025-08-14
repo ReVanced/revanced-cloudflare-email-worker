@@ -1,13 +1,20 @@
 {
-	"name": "email-spam-filter",
-	"version": "0.0.0",
+	"name": "revanced-email-worker",
+	"description": "A Cloudflare Worker as an intermediary for mails sent to ReVanced.",
+	"author": "ReVanced",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev"
 	},
+	"dependencies": {
+		"cloudflare-email": "^0.1.0"
+	},
 	"devDependencies": {
-		"wrangler": "^4.20.1"
+		"@cloudflare/workers-types": "^4.20240208.0",
+		"typescript": "^5.3.3",
+		"wrangler": "4.22.0"
 	}
 }
