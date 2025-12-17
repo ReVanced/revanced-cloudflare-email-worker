@@ -1,22 +1,7 @@
-import EmailParser, { type Email } from 'postal-mime';
+import EmailParser from 'postal-mime';
 import { createMimeMessage } from 'mimetext/browser'; // doesn't require node compatibility
 import { EmailMessage } from 'cloudflare:email';
-
-const hasSecretString = (email: Email, secretString: string, matchCase: boolean = false) => {
-	let subject = email.subject || '';
-	subject = matchCase ? subject : subject.toLowerCase();
-
-	let bodyHtml = email.html || '';
-	bodyHtml = matchCase ? bodyHtml : bodyHtml.toLowerCase();
-
-	let bodyText = email.text || '';
-	bodyText = matchCase ? bodyText : bodyText.toLowerCase();
-
-	secretString = secretString.trim();
-	secretString = matchCase ? secretString : secretString.toLowerCase();
-
-	return subject.includes(secretString) || bodyHtml.includes(secretString) || bodyText.includes(secretString);
-};
+import { hasSecretString, matchAll } from './matchers';
 
 export default {
 	// https://developers.cloudflare.com/email-routing/email-workers/local-development/
@@ -25,7 +10,7 @@ export default {
 		const raw = new Response(message.raw);
 		const email = await parser.parse(await raw.arrayBuffer());
 
-		const forward = hasSecretString(email, env.SECRET_STRING, env.MATCH_CASE === 'true');
+		const forward = await matchAll([hasSecretString])(email, env, ctx);
 		if (forward) return await message.forward(env.FORWARD_EMAIL);
 
 		const msg = createMimeMessage();
