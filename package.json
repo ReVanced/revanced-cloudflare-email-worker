@@ -13,5 +13,9 @@
 		"typescript": "^5.9.3",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.55.0"
+	},
+	"dependencies": {
+		"mimetext": "^3.0.27",
+		"postal-mime": "^2.6.1"
 	}
 }
