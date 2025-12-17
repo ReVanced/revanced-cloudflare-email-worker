@@ -33,8 +33,8 @@ export default {
 		const messageId = message.headers.get('Message-ID');
 		if (messageId) msg.setHeader('In-Reply-To', messageId);
 
-		msg.setSubject(env.REJECTED_SUBJECT);
-		msg.addMessage({ contentType: 'text/plain', data: env.REJECTED_BODY });
+		msg.setSubject(env.BOUNCE_MAIL_SUBJECT);
+		msg.addMessage({ contentType: 'text/plain', data: env.BOUNCE_MAIL_BODY });
 
 		const replyMessage = new EmailMessage(env.SENDER_EMAIL, message.from, msg.asRaw());
 		await message.reply(replyMessage);
