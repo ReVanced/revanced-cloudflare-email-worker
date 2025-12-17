@@ -15,11 +15,3 @@ workers_dev = true
 # REJECTED_BODY = "Your email has been rejected because it did not contain the required secret string."
 # SECRET_STRING = "your_secret_string"
 # MATCH_CASE = false
-
-[observability]
-enabled = false
-
-[observability.logs]
-enabled = true
-head_sampling_rate = 1
-invocation_logs = true
