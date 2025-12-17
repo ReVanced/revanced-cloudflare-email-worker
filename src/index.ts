@@ -6,13 +6,16 @@ const hasSecretString = (email: Email, secretString: string, matchCase: boolean 
 	let subject = email.subject || '';
 	subject = matchCase ? subject : subject.toLowerCase();
 
-	let body = email.html || '';
-	body = matchCase ? body : body.toLowerCase();
+	let bodyHtml = email.html || '';
+	bodyHtml = matchCase ? bodyHtml : bodyHtml.toLowerCase();
+
+	let bodyText = email.text || '';
+	bodyText = matchCase ? bodyText : bodyText.toLowerCase();
 
 	secretString = secretString.trim();
 	secretString = matchCase ? secretString : secretString.toLowerCase();
 
-	return subject.includes(secretString) || body.includes(secretString);
+	return subject.includes(secretString) || bodyHtml.includes(secretString) || bodyText.includes(secretString);
 };
 
 export default {
