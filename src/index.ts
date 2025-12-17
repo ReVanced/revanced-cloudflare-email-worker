@@ -33,8 +33,7 @@ export default {
 		msg.setSender({ name: env.SENDER_NAME, addr: env.SENDER_EMAIL });
 		msg.setRecipient(message.from);
 
-		const messageId = message.headers.get('Message-ID');
-		if (messageId) msg.setHeader('In-Reply-To', messageId);
+		msg.setHeader('In-Reply-To', message.headers.get('Message-ID') ?? '');
 
 		msg.setSubject(env.BOUNCE_MAIL_SUBJECT);
 		msg.addMessage({ contentType: 'text/html', data: env.BOUNCE_MAIL_BODY });
