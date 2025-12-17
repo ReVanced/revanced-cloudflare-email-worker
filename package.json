@@ -1,17 +1,14 @@
 {
-	"name": "test",
+	"name": "revanced-cloudflare-email-worker",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler types && wrangler dev",
-		"start": "wrangler types && wrangler dev",
-		"test": "vitest"
+		"start": "wrangler types && wrangler dev"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.8.71",
 		"typescript": "^5.9.3",
-		"vitest": "~3.2.0",
 		"wrangler": "^4.55.0"
 	},
 	"dependencies": {
