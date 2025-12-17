@@ -37,7 +37,7 @@ export default {
 		if (messageId) msg.setHeader('In-Reply-To', messageId);
 
 		msg.setSubject(env.BOUNCE_MAIL_SUBJECT);
-		msg.addMessage({ contentType: 'text/plain', data: env.BOUNCE_MAIL_BODY });
+		msg.addMessage({ contentType: 'text/html', data: env.BOUNCE_MAIL_BODY });
 
 		const replyMessage = new EmailMessage(env.SENDER_EMAIL, message.from, msg.asRaw());
 		await message.reply(replyMessage);
