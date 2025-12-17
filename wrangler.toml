@@ -1,6 +1,7 @@
 name = "email-spam-filter"
 main = "src/index.ts"
 compatibility_date = "2025-12-17"
+workers_dev = true
 
 # Environment variables - actual values should be set via wrangler secret or dashboard
 # [vars]
@@ -10,6 +11,10 @@ compatibility_date = "2025-12-17"
 # FORWARD_EMAIL = "admin@yourdomain.com"
 # ORGANIZATION_NAME = "Your Organization"
 # WEBSITE_URL = "https://yourdomain.com"
+# REJECTED_SUBJECT = "Spam Detected"
+# REJECTED_BODY = "Your email has been rejected because it did not contain the required secret string."
+# SECRET_STRING = "your_secret_string"
+# MATCH_CASE = false
 
 [observability]
 enabled = false
