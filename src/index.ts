@@ -2,7 +2,7 @@ import EmailParser, { type Email } from 'postal-mime';
 import { createMimeMessage } from 'mimetext/browser'; // doesn't require node compatibility
 import { EmailMessage } from 'cloudflare:email';
 
-const hasSecretString = async (email: Email, secretString: string, matchCase: boolean = false) => {
+const hasSecretString = (email: Email, secretString: string, matchCase: boolean = false) => {
 	let subject = email.subject || '';
 	subject = matchCase ? subject : subject.toLowerCase();
 
@@ -22,7 +22,7 @@ export default {
 		const raw = new Response(message.raw);
 		const email = await parser.parse(await raw.arrayBuffer());
 
-		const forward = await hasSecretString(email, env.SECRET_STRING, env.MATCH_CASE === 'true');
+		const forward = hasSecretString(email, env.SECRET_STRING, env.MATCH_CASE === 'true');
 		if (forward) return await message.forward(env.FORWARD_EMAIL);
 
 		const msg = createMimeMessage();
