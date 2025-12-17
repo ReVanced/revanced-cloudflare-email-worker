@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
-		"dev": "wrangler types && wrangler dev",
-		"start": "wrangler types && wrangler dev"
+		"dev": "wrangler dev",
+		"start": "wrangler dev",
+		"types": "wrangler types"
 	},
 	"devDependencies": {
 		"typescript": "^5.9.3",
