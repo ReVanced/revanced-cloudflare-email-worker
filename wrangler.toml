@@ -1,11 +1,9 @@
 name = "email-spam-filter"
-main = "src/worker.js"
-workers_dev = true
-compatibility_date = "2024-09-23"
-compatibility_flags = ["nodejs_compat"]
+main = "src/index.ts"
+compatibility_date = "2025-12-17"
 
 # Environment variables - actual values should be set via wrangler secret or dashboard
-[vars]
+# [vars]
 # SENDER_NAME = "Your Organization Name"
 # SENDER_EMAIL = "contact@yourdomain.com"
 # REPLY_EMAIL = "contact@yourdomain.com"
