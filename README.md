@@ -1,4 +1,4 @@
-# Email Spam Filter
+# ReVanced Cloudflare Email Worker
 
 A Cloudflare Worker for handling email auto-replies and forwarding.
 
@@ -22,18 +22,11 @@ Copy `.env.example` to `.env.local` and fill in your actual values:
 cp .env.example .env.local
 ```
 
-Then edit `.env.local` with your values:
-
-- `SENDER_NAME`: Name displayed as the sender of auto-reply emails
-- `SENDER_EMAIL`: Email address used as the sender
-- `REPLY_EMAIL`: Email address used for replies (usually same as SENDER_EMAIL)
-- `FORWARD_EMAIL`: Email address where messages should be forwarded
-- `ORGANIZATION_NAME`: Organization name used in email message content
-- `WEBSITE_URL`: Website URL referenced in email messages
+Then edit `.env.local` with your values.
 
 #### Setting Environment Variables in Cloudflare
 
-For production deployment, set these environment variables in your Cloudflare Worker:
+For production deployment, set these environment variables using Wrangler secrets and/or the Cloudflare dashboard:
 
 ```bash
 wrangler secret put SENDER_NAME
@@ -42,26 +35,32 @@ wrangler secret put REPLY_EMAIL
 wrangler secret put FORWARD_EMAIL
 wrangler secret put ORGANIZATION_NAME
 wrangler secret put WEBSITE_URL
+wrangler secret put SECRET
+wrangler secret put BOUNCE_MAIL_SUBJECT
+wrangler secret put BOUNCE_MAIL_BODY
 ```
+
+Alternatively, configure variables in `wrangler.toml` (note: use secrets for sensitive values like the SECRET string).
 
 ### Development
 
 1. Install dependencies:
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
-2. Set up environment variables (see above)
+2. Set up environment variables ([see above](#required-environment-variables))
 
 3. Run locally:
 
-   ```bash
-   wrangler dev
-   ```
+```bash
+npm run types
+npm run dev
+```
 
 ### Deployment
 
 ```bash
-wrangler deploy
+npm run deploy
 ```
