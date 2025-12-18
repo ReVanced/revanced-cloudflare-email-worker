@@ -1,10 +1,9 @@
 import EmailParser from 'postal-mime';
-import { createMimeMessage } from 'mimetext/browser'; // doesn't require node compatibility
+import { createMimeMessage } from 'mimetext/browser';
 import { EmailMessage } from 'cloudflare:email';
 import { hasSecretString, matchAll } from './matchers';
 
 export default {
-	// https://developers.cloudflare.com/email-routing/email-workers/local-development/
 	async email(message, env, ctx) {
 		const parser = new EmailParser();
 		const raw = new Response(message.raw);
