@@ -3,21 +3,12 @@ import { createMimeMessage } from 'mimetext/browser';
 import { EmailMessage } from 'cloudflare:email';
 
 export const hasSecretString = (email: Email, env: Env, ctx: ExecutionContext) => {
-	const matchCase = env.MATCH_CASE === 'true';
+	const subject = (email.subject || '').toLowerCase();
+	const bodyHtml = (email.html || '').toLowerCase();
+	const bodyText = (email.text || '').toLowerCase();
+	const secret = env.SECRET.trim().toLowerCase();
 
-	let subject = email.subject || '';
-	subject = matchCase ? subject : subject.toLowerCase();
-
-	let bodyHtml = email.html || '';
-	bodyHtml = matchCase ? bodyHtml : bodyHtml.toLowerCase();
-
-	let bodyText = email.text || '';
-	bodyText = matchCase ? bodyText : bodyText.toLowerCase();
-
-	let secretString = env.SECRET_STRING.trim();
-	secretString = matchCase ? secretString : secretString.toLowerCase();
-
-	return subject.includes(secretString) || bodyHtml.includes(secretString) || bodyText.includes(secretString);
+	return subject.includes(secret) || bodyHtml.includes(secret) || bodyText.includes(secret);
 };
 
 export default {
