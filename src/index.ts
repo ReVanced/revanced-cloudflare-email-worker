@@ -2,7 +2,7 @@ import EmailParser, { type Email } from 'postal-mime';
 import { createMimeMessage } from 'mimetext/browser';
 import { EmailMessage } from 'cloudflare:email';
 
-export const hasSecretString = (email: Email, env: Env, ctx: ExecutionContext) => {
+const hasSecretString = (email: Email, env: Env, ctx: ExecutionContext) => {
 	const subject = (email.subject || '').toLowerCase();
 	const bodyHtml = (email.html || '').toLowerCase();
 	const bodyText = (email.text || '').toLowerCase();
