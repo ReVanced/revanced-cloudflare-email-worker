@@ -13,4 +13,6 @@ workers_dev = true
 # WEBSITE_URL = "https://yourdomain.com"
 # BOUNCE_MAIL_SUBJECT = "Your email was rejected"
 # BOUNCE_MAIL_BODY = "Your email was rejected because it did not include a specific secret in the subject or body. The secret ensures, you have read and followed our email policy. You can find the secret in the email address you saw."
-# SECRET = "s0me5ecr3t"
+
+# The secret string should be set as a Wrangler secret for security
+# Add it via command: wrangler secret put SECRET

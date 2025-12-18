@@ -29,6 +29,9 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+          secrets: |
+            SECRET
+
         env:
           SENDER_NAME: ${{ vars.SENDER_NAME }}
           SENDER_EMAIL: ${{ vars.SENDER_EMAIL }}
