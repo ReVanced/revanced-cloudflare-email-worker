@@ -16,13 +16,11 @@ This project uses environment variables to configure sender information, email a
 
 #### Required Environment Variables
 
-Copy `.env.example` to `.env.local` and fill in your actual values:
+Copy `.env.example` to `.env` and fill in your actual values:
 
 ```bash
-cp .env.example .env.local
+cp .env.example .env
 ```
-
-Then edit `.env.local` with your values.
 
 #### Setting Environment Variables in Cloudflare
 
