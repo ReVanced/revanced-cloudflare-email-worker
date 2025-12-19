@@ -2,17 +2,3 @@ name = "revanced-cloudflare-email-worker"
 main = "src/index.ts"
 compatibility_date = "2025-12-17"
 workers_dev = true
-
-# Environment variables - actual values should be set via wrangler secret or dashboard
-# [vars]
-# SENDER_NAME = "Your Organization Name"
-# SENDER_EMAIL = "contact@yourdomain.com"
-# REPLY_EMAIL = "contact@yourdomain.com"
-# FORWARD_EMAIL = "admin@yourdomain.com"
-# ORGANIZATION_NAME = "Your Organization"
-# WEBSITE_URL = "https://yourdomain.com"
-# BOUNCE_MAIL_SUBJECT = "Your email was rejected"
-# BOUNCE_MAIL_BODY = "Your email was rejected because it did not include a specific secret in the subject or body. The secret ensures, you have read and followed our email policy. You can find the secret in the email address you saw."
-
-# The secret string should be set as a Wrangler secret for security
-# Add it via command: wrangler secret put SECRET
