@@ -29,10 +29,7 @@ For production deployment, set these environment variables using Wrangler secret
 ```bash
 wrangler secret put SENDER_NAME
 wrangler secret put SENDER_EMAIL
-wrangler secret put REPLY_EMAIL
 wrangler secret put FORWARD_EMAIL
-wrangler secret put ORGANIZATION_NAME
-wrangler secret put WEBSITE_URL
 wrangler secret put SECRET
 wrangler secret put BOUNCE_MAIL_SUBJECT
 wrangler secret put BOUNCE_MAIL_BODY
