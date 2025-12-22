@@ -58,65 +58,57 @@
    Continuing the legacy of Vanced
 </p>
 
-# ReVanced Cloudflare Email Worker
+# ✉️ ReVanced Cloudflare Email Worker
 
-A Cloudflare Worker for handling email auto-replies and forwarding.
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ReVanced/revanced-cloudflare-email-worker/deploy.yml)
+![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)
 
-## ✨ Features
+A Cloudflare Email Worker to reply to or filter mails
+
+❓ About
+
+With ReVanced Cloudflare Email Worker, spam can be mitigated by enforcing a policy for incoming emails.
+Senders are asked to include a secret in the email, which can be found in the policy.
+
+💪 Features
 
 - 📧 **Auto-replies**: Automatically reply to incoming emails
-- ➡️ **Email forwarding**: Forward emails with subjects to a specified address
-- ⚙️ **Customizable**: Customize sender information and message content
+- ➡️ **Email forwarding**: Forward emails to a specified address
+- ⚙️ **Customizable**: Customize sender information and message content for replies
 
-## 🚀 Getting Started
+## 🚀 How to get started
 
-### 🔧 Environment Variables
+To get started with ReVanced Cloudflare Email Worker, pnpm is recommended, but npm can also be used.
+Follow the steps below to get started with ReVanced Cloudflare Email Worker:
 
-This project uses environment variables to configure sender information, email addresses, and message content. This allows you to customize the behavior for different environments without committing sensitive information to git.
+1. Run `git clone git@github.com:ReVanced/revanced-cloudflare-email-worker.git && cd revanced-cloudflare-email-worker` to clone the repository
+2. Run `pnpm install` to install dependencies
+4. Set the environment variables and secrets from [.env.example](.env.example) via the Cloudflare Workers dashboard according to [this](https://developers.cloudflare.com/workers/configuration/environment-variables/)
+6. Run `pnpm deploy` to deploy the project
 
-#### Required Environment Variables
+## 📚 Everything else
 
-Copy `.env.example` to `.env` and fill in your actual values:
+### 📙 Contributing
 
-```bash
-cp .env.example .env
-```
+Thank you for considering contributing to ReVanced Cloudflare Email Worker. You can find the contribution
+guidelines [here](CONTRIBUTING.md).
 
-#### Setting Environment Variables in Cloudflare
+### 🛠️ Building
 
-For production deployment, set these environment variables using Wrangler secrets and/or the Cloudflare dashboard:
+To build ReVanced Cloudflare Email Worker, pnpm is recommended, but npm can also be used.
+Follow the steps below to build ReVanced Cloudflare Email Worker:
 
-```bash
-wrangler secret put SENDER_NAME
-wrangler secret put SENDER_EMAIL
-wrangler secret put FORWARD_EMAIL
-wrangler secret put REPLY_TO_EMAIL
-wrangler secret put BOUNCE_MAIL_SUBJECT
-wrangler secret put BOUNCE_MAIL_BODY
-wrangler secret put SECRET
-```
+1. Run `git clone git@github.com:ReVanced/revanced-cloudflare-email-worker.git && cd revanced-cloudflare-email-worker` to clone the repository
+2. Run `pnpm install` to install dependencies
+5. Copy [.env.example](.env.example) to `.env` and fill in the required values
+6. Run `pnpm types` to generate types
+7. Run
+   - `pnpm build` to build the project
+   - `pnpm dev` to start the worker
 
-Alternatively, configure variables in `wrangler.toml` (note: use secrets for sensitive values like the SECRET string).
+## 📜 License
 
-### 💻 Development
-
-1. Install dependencies:
-
-```bash
-npm install
-```
-
-2. Set up environment variables ([see above](#-environment-variables))
-
-3. Run locally:
-
-```bash
-npm run types
-npm run dev
-```
-
-### 🌐 Deployment
-
-```bash
-npm run deploy
-```
+ReVanced Cloudflare Email Worker is licensed under the AGPLv3 licence. Please see the [license file](LICENSE) for more information.
+[tl;dr](https://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-agpl-3-0) you may copy, distribute and
+modify ReVanced Vote as long as you track changes/dates in source files.
+Any modifications to ReVanced Cloudflare Email Worker must also be made available under the GPL along with build & install instructions.
