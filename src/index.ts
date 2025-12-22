@@ -26,6 +26,7 @@ export default {
 		msg.setRecipient(message.from);
 
 		msg.setHeader('In-Reply-To', message.headers.get('Message-ID') ?? '');
+		msg.setHeader('Reply-To', env.REPLY_TO_EMAIL);
 
 		msg.setSubject(env.BOUNCE_MAIL_SUBJECT);
 		msg.addMessage({ contentType: 'text/html', data: env.BOUNCE_MAIL_BODY });

@@ -36,6 +36,7 @@ jobs:
           SENDER_NAME: ${{ vars.SENDER_NAME }}
           SENDER_EMAIL: ${{ vars.SENDER_EMAIL }}
           FORWARD_EMAIL: ${{ vars.FORWARD_EMAIL }}
+          REPLY_TO_EMAIL: ${{ vars.REPLY_TO_EMAIL }}
           BOUNCE_MAIL_SUBJECT: ${{ vars.BOUNCE_MAIL_SUBJECT }}
           BOUNCE_MAIL_BODY: ${{ vars.BOUNCE_MAIL_BODY }}
           SECRET: ${{ secrets.SECRET }}

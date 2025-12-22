@@ -30,9 +30,10 @@ For production deployment, set these environment variables using Wrangler secret
 wrangler secret put SENDER_NAME
 wrangler secret put SENDER_EMAIL
 wrangler secret put FORWARD_EMAIL
-wrangler secret put SECRET
+wrangler secret put REPLY_TO_EMAIL
 wrangler secret put BOUNCE_MAIL_SUBJECT
 wrangler secret put BOUNCE_MAIL_BODY
+wrangler secret put SECRET
 ```
 
 Alternatively, configure variables in `wrangler.toml` (note: use secrets for sensitive values like the SECRET string).
