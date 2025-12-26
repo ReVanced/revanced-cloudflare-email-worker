@@ -49,8 +49,8 @@ Follow the steps below to get started with ReVanced Cloudflare Email Worker:
 
 1. Run `git clone git@github.com:ReVanced/revanced-cloudflare-email-worker.git && cd revanced-cloudflare-email-worker` to clone the repository
 2. Run `pnpm install` to install dependencies
-4. Set the environment variables and secrets from [.env.example](.env.example) via the Cloudflare Workers dashboard according to [this](https://developers.cloudflare.com/workers/configuration/environment-variables/)
-6. Run `pnpm deploy` to deploy the project
+3. Set the environment variables and secrets from [.env.example](.env.example) via the Cloudflare Workers dashboard according to [this](https://developers.cloudflare.com/workers/configuration/environment-variables/)
+4. Run `pnpm deploy` to deploy the project
 
 ## 📚 Everything else
 
@@ -66,9 +66,9 @@ Follow the steps below to build ReVanced Cloudflare Email Worker:
 
 1. Run `git clone git@github.com:ReVanced/revanced-cloudflare-email-worker.git && cd revanced-cloudflare-email-worker` to clone the repository
 2. Run `pnpm install` to install dependencies
-5. Copy [.env.example](.env.example) to `.env` and fill in the required values
-6. Run `pnpm types` to generate types
-7. Run
+3. Copy [.env.example](.env.example) to `.env` and fill in the required values
+4. Run `pnpm types` to generate types
+5. Run
    - `pnpm build` to build the project
    - `pnpm dev` to start the worker
 
