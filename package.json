@@ -10,7 +10,7 @@
 	},
 	"devDependencies": {
 		"typescript": "^5.9.3",
-		"wrangler": "^4.56.0"
+		"wrangler": "^4.54.0"
 	},
 	"dependencies": {
 		"mimetext": "^3.0.27",
