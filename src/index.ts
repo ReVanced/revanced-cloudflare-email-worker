@@ -1,5 +1,5 @@
 import EmailParser, { type Email } from 'postal-mime';
-import { createMimeMessage } from 'mimetext/browser';
+import { createMimeMessage, Mailbox } from 'mimetext/browser';
 import { EmailMessage } from 'cloudflare:email';
 
 const hasSecretString = (email: Email, env: Env) => {
@@ -26,7 +26,7 @@ export default {
 		msg.setRecipient(message.from);
 
 		msg.setHeader('In-Reply-To', message.headers.get('Message-ID') ?? '');
-		msg.setHeader('Reply-To', env.REPLY_TO_EMAIL);
+		msg.setHeader('Reply-To', new Mailbox(env.REPLY_TO_EMAIL));
 
 		msg.setSubject(env.BOUNCE_MAIL_SUBJECT);
 		msg.addMessage({ contentType: 'text/html', data: env.BOUNCE_MAIL_BODY });
