@@ -1,20 +1,19 @@
 {
-	"name": "revanced-email-worker",
-	"description": "A Cloudflare Worker as an intermediary for mails sent to ReVanced.",
-	"author": "ReVanced",
+	"name": "revanced-cloudflare-email-worker",
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
-		"start": "wrangler dev"
-	},
-	"dependencies": {
-		"cloudflare-email": "^0.1.0"
+		"start": "wrangler dev",
+		"types": "wrangler types"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240208.0",
-		"typescript": "^5.3.3",
-		"wrangler": "4.22.0"
+		"typescript": "^5.9.3",
+		"wrangler": "^4.55.0"
+	},
+	"dependencies": {
+		"mimetext": "^3.0.27",
+		"postal-mime": "^2.6.1"
 	}
 }
