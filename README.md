@@ -68,9 +68,7 @@ Follow the steps below to build ReVanced Cloudflare Email Worker:
 2. Run `pnpm install` to install dependencies
 3. Copy [.env.example](.env.example) to `.env` and fill in the required values
 4. Run `pnpm types` to generate types
-5. Run
-   - `pnpm build` to build the project
-   - `pnpm dev` to start the worker
+5. Run `pnpm dev` to build and start the worker
 
 ## 📜 License
 
