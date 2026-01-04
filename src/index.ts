@@ -23,7 +23,7 @@ export default {
 		const msg = createMimeMessage();
 
 		msg.setSender({ name: env.SENDER_NAME, addr: env.SENDER_EMAIL });
-		msg.setRecipient(message.from);
+		msg.setRecipient({ addr: message.from });
 
 		msg.setHeader('In-Reply-To', message.headers.get('Message-ID') ?? '');
 		msg.setHeader('Reply-To', new Mailbox(env.REPLY_TO_EMAIL));
