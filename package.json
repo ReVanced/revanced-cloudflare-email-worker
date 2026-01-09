@@ -10,10 +10,10 @@
 	},
 	"devDependencies": {
 		"typescript": "^5.9.3",
-		"wrangler": "^4.54.0"
+		"wrangler": "^4.58.0"
 	},
 	"dependencies": {
 		"mimetext": "^3.0.27",
-		"postal-mime": "^2.7.1"
+		"postal-mime": "^2.7.3"
 	}
 }
