@@ -2,6 +2,18 @@ import EmailParser, { type Email } from 'postal-mime';
 import { createMimeMessage, Mailbox } from 'mimetext/browser';
 import { EmailMessage } from 'cloudflare:email';
 
+const arrayBufferToBase64 = (buffer: ArrayBuffer): string => {
+	let binary = '';
+	const bytes = new Uint8Array(buffer);
+	const chunkSize = 0x8000;
+
+	for (let i = 0; i < bytes.length; i += chunkSize) {
+		binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize));
+	}
+
+	return btoa(binary);
+};
+
 const hasSecretString = (email: Email, env: Env) => {
 	const subject = (email.subject || '').toLowerCase();
 	const bodyHtml = (email.html || '').toLowerCase();
@@ -43,6 +55,13 @@ export default {
 </html>
 `;
 			relay.addMessage({ contentType: 'text/html', data: content.trim() });
+
+			for (const attachment of email.attachments || [])
+				relay.addAttachment({
+					filename: attachment.filename || 'attachment',
+					contentType: attachment.mimeType,
+					data: typeof attachment.content === 'string' ? attachment.content : arrayBufferToBase64(attachment.content),
+				});
 
 			const relayMessage = new EmailMessage(env.SENDER_EMAIL, env.FORWARD_EMAIL, relay.asRaw());
 			return await env.RESENDER.send(relayMessage);
