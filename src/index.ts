@@ -25,6 +25,7 @@ export default {
 			relay.setRecipient({ addr: env.FORWARD_EMAIL });
 
 			relay.setSubject(`[Relay] ${email.subject || '(No subject)'}`);
+			relay.setHeader('Reply-To', new Mailbox(message.from));
 
 			const content = `
 <!DOCTYPE html>
